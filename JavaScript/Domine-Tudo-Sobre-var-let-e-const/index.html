@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Domine Tudo Sobre var, let e const | Mr Genesis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="A declaração de variáveis em JavaScript pode ser feita usando três palavras chaves var, let e const. Com eles, é possível escrever códigos muito mais consistentes e legíveis. Continue lendo! Acredito">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Domine Tudo Sobre var, let e const">
+<meta property="og:url" content="https://mrgenesis.dev/JavaScript/Domine-Tudo-Sobre-var-let-e-const/index.html">
+<meta property="og:site_name" content="Mr Genesis">
+<meta property="og:description" content="A declaração de variáveis em JavaScript pode ser feita usando três palavras chaves var, let e const. Com eles, é possível escrever códigos muito mais consistentes e legíveis. Continue lendo! Acredito">
+<meta property="og:locale" content="pt_BR">
+<meta property="article:published_time" content="2020-04-19T00:00:00.000Z">
+<meta property="article:modified_time" content="2020-08-25T20:49:17.025Z">
+<meta property="article:author" content="Genesis Rosa">
+<meta property="article:tag" content="variaveis">
+<meta property="article:tag" content="escopo">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Mr Genesis" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Mr Genesis</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://mrgenesis.dev"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Domine-Tudo-Sobre-var-let-e-const" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/JavaScript/Domine-Tudo-Sobre-var-let-e-const/" class="article-date">
+  <time datetime="2020-04-19T00:00:00.000Z" itemprop="datePublished">2020-04-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Domine Tudo Sobre var, let e const
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>A declaração de variáveis em JavaScript pode ser feita usando três palavras chaves: <code>var</code>, <code>let</code> e <code>const</code>.<br>Mas, o que é uma variável e o que significam essas três palavras? De forma resumida uma variável é um <strong>nome que representa um valor</strong>. Exemplo:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nome = <span class="string">&quot;valor da variável&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(nome); <span class="comment">// Output: valor da variável</span></span><br></pre></td></tr></table></figure>
+<p>No exemplo acima vimos como declarar uma variável e atribuir um valor a ela. Neste caso, estamos dizendo que a palavra <code>nome</code> representa o valor  “valor da variável”. Fácil, né?<br>A princípio, a maneira de declarar variáveis é essa, e você poderia fazer assim em todas as variáveis do seu código. Mas isso seria um grande equívoco, porque <code>let</code> e <code>const</code> proporcionariam recursos excelentes. Com eles, é possível escrever códigos muito mais consistentes e legíveis. Continue lendo! Acredito que avançaremos em conhecimentos valiosos sobre este assunto. E você verá que <code>let</code> e <code>const</code> resolvem muitos problemas e confusões causados por <code>var</code>.</p>
+<h2 id="Escopo-Contexto-lexico"><a href="#Escopo-Contexto-lexico" class="headerlink" title="Escopo - Contexto léxico"></a>Escopo - Contexto léxico</h2><p>Não conseguimos falar de variáveis sem falar em escopo ou contexto léxico. Então você precisa entender bem esta questão para assim conseguir diferenciar <code>var</code>, <code>let</code> e <code>const</code>. Para ilustrar, <strong>escopo é como se fosse um território</strong>. <em>Você não vai conseguir votar nas eleições canadenses usando um Título de Eleitor brasileiro</em>. Da mesma forma se tentar acessar o valor de uma variável que está fora do escopo (em outro território) não vai dar certo.<br>Você vai notar que <strong>os escopos são definidos por chaves</strong> <code>&#123;&#125;</code>; e quando não há chaves é porque a variável está no escopo global.<br>Com esse principio em mente, lembre se de que sempre que uma variável é criada é <strong>definido um escopo (<em>território</em>) para ela</strong>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">brasil</span>(<span class="params"></span>)</span>&#123; <span class="comment">// escopo da função &#123;brasil&#125;</span></span><br><span class="line">	<span class="keyword">var</span> paisBrasil = <span class="string">&quot;Brasil&quot;</span>;</span><br><span class="line">&#125;());</span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">canada</span>(<span class="params"></span>)</span>&#123; <span class="comment">// esscopo da função &#123;canadá&#125;</span></span><br><span class="line">	<span class="built_in">console</span>.log(paisBrasil); <span class="comment">//paisBrasil is not defined</span></span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+<p>Se você notar, o exemplo acima mostra que os valores não podem ser acessados de fora: isso gera um erro. Mas o inverso é aceitável. Veja:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mundo = <span class="string">&quot;Variável Global&quot;</span>;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">brasil</span>(<span class="params"></span>)</span>&#123; <span class="comment">// escopo da função &#123;brasil&#125;</span></span><br><span class="line">	<span class="comment">// aqui dentro é possível acessar o escopo Global</span></span><br><span class="line">	<span class="built_in">console</span>.log(mundo); <span class="comment">// Output: Variável Global</span></span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+<p>Então, grave isto: <em>quem está dentro consegue ver quem está fora, mas quem está fora não consegue ver quem está dentro</em>.<br>Isso ocorre porque é procurado aquela variável no escopo atual, <strong>e depois no escopo de fora</strong>, e assim por diante.</p>
+<hr>
+<p>Importante!  Se você quiser <strong>tornar visível</strong> algo que está dentro de um escopo, isso é possível; mas um escopo é privado por padrão. De qualquer forma isso é outra história! Não falaremos disso aqui, okay?</p>
+<hr>
+<h2 id="var"><a href="#var" class="headerlink" title="var"></a>var</h2><p>Seu comportamento pode ser imprevisível. Por exemplo, é bem ruim quando temos uma variável no contexto global, e se você precisar fazer um loop e usar o <code>var</code> você terá este problema.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">	<span class="comment">// codes</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i); <span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> variavel = <span class="string">&quot;Dentro do if&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(variavel); <span class="comment">// Dentro do if</span></span><br></pre></td></tr></table></figure>
+<p>Note no exemplo acima que após executar o <code>for</code> e <code>if</code>, teremos <code>i</code> e <code>variavel</code> disponíveis no escopo global. O <code>var</code> somente se mantem dentro do escopo de funções.</p>
+<hr>
+<p>Não é legal criar variáveis no escopo global, porque você pode sobrescrever alguma outra variável e fazer seu código quebrar. Mas isso é outra história! Não falaremos disso aqui.</p>
+<hr>
+<h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><p>A expressão <code>let</code> surgiu de um conceito matemático, na linguagem <a target="_blank" title="Logic of Computer Functions" href="https://en.wikipedia.org/wiki/Let_expression#History">Logic of Computer Functions</a>: uma etapa da evolução de cálculos lambda, <a title="Dana Scott, nascido em 1932" target="_blank" href="https://en.wikipedia.org/wiki/Dana_Scott">Dana Scott, nascido em 1932</a>. A ideia era definir um escopo limitado àquela função para que a variável se tornasse apenas local.</p>
+<p>Declarando uma variável com <code>let</code> dentro de <code>if</code>, o valor fica somente em <code>if</code>. Veja:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">	<span class="keyword">let</span> privado = <span class="string">&quot;Dentro do if&quot;</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(privado); <span class="comment">// Dentro do if</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(privado); <span class="comment">// privado is not defined</span></span><br></pre></td></tr></table></figure>
+<p>Mas quando é declarado com <code>var</code> conseguimos acessar o valor normalmente.<br>Lembre-se: <strong>escopos são definidos por chaves <code>&#123;&#125;</code></strong>.</p>
+<p>Você deve ter se apercebido até aqui de que a diferença entre <code>var</code> e <code>let</code> é que respectivamente um <strong>ignora o escopo</strong>   e o outro <strong>só funciona dentro do escopo <code>&#123;&#125;</code></strong> . E se você chegou a conclusão que é muito melhor usar <code>let</code>, digo que concluiu corretamente: com <code>let</code> você terá muito mais controle do seu código, e o deixa muito mais claro.</p>
+<h4 id="let-vs-var"><a href="#let-vs-var" class="headerlink" title="let vs var"></a>let vs var</h4><p>De forma bem resumida, funciona assim: </p>
+<ol>
+<li>tudo dentro de chaves <code>&#123;&#125;</code> declarado com <code>let</code> só vai funcionar lá dentro</li>
+<li>Com <code>var</code> é diferente:<ul>
+<li>em <code>function()&#123;&#125;</code> funciona de forma privada igual <code>let</code></li>
+<li>em <code>if, else, for, while, switch, try</code>, vai vazar para o <strong>escopo de fora</strong></li>
+</ul>
+</li>
+</ol>
+<p>Compare <code>let</code> e <code>var</code> no exemplo abaixo:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">// escopo de fora do if</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">		<span class="keyword">var</span> varEmIf = <span class="string">&quot;Var em if&quot;</span>;</span><br><span class="line">		<span class="keyword">let</span> letEmIf = <span class="string">&quot;Let em if&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">console</span>.log(varEmIf); <span class="comment">// Var em if</span></span><br><span class="line">	<span class="built_in">console</span>.log(letEmIf); <span class="comment">// letEmIf is not defined</span></span><br><span class="line">&#125;());</span><br><span class="line"><span class="comment">// escopo Global</span></span><br><span class="line"><span class="built_in">console</span>.log(varEmIf); <span class="comment">// varEmIf is not defined</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><p>Funciona quase igual <code>let</code> com a diferença de que o valor em <code>const</code> não pode ser mudado. Veja:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nome = <span class="string">&quot;João&quot;</span>;</span><br><span class="line">nome = <span class="string">&quot;Maria&quot;</span>;</span><br><span class="line"><span class="comment">// Uncaught TypeError: Assignment to constant variable.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">	<span class="keyword">const</span> teste = <span class="string">&quot;Dentro de if&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(teste); <span class="comment">// Uncaught ReferenceError: teste is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>Então se você precisa mudar o valor de uma determinada variável use <code>let</code>, porque <code>const</code> não permitirá alterações. Tem uma exceção: se você <strong>trocar apenas a propriedade</strong> de  um objeto.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">	nome: <span class="string">&quot;Maria&quot;</span>,</span><br><span class="line">	sobrenome: <span class="string">&quot;Sousa&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line">obj.sobrenome = <span class="string">&quot;Sousa Silva&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.sobrenome); <span class="comment">// Output: Sousa Silva</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Chaves"><a href="#Chaves" class="headerlink" title="Chaves"></a>Chaves</h2><p>Quando estiver escrevendo código, há situações em que você poderá escolher entre usar ou não chaves <code>&#123;&#125;</code>. Figuras respeitadas no mundo da programação desencorajam o uso abreviado do <code>if</code> (single-statement context). O livro <em>Padrões JavaScript</em>, página 42, é um exemplo disso. Lá é feita uma forte recomendação que se use as chaves, mesmo se o código em <code>if</code> tiver apenas uma linha. Não use single-statement context!</p>
+<blockquote>
+<p>…<strong>mas</strong> você deve usá-las de qualquer forma - “<em>JavaScript<br>Patterns</em>, por Stoyan Stefanov (O’Reylly). Todos os direitos<br>reservados 2010 Yahoo!, 9780596806750”.</p>
+</blockquote>
+<p>De qualquer forma, <code>let</code> e <code>const</code> não te darão liberdade de escolha, <a href="https://github.com/Microsoft/TypeScript/issues/20435#issuecomment-348988471" target="_blank">você será obrigado a usar chaves</a>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//////////////// ERRADO!!!</span></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) </span><br><span class="line">	<span class="keyword">var</span> nome = <span class="string">&quot;Maria&quot;</span>; <span class="comment">// Vai funcionar, mas não é aconselhável</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>)</span><br><span class="line">	<span class="keyword">let</span> nome = <span class="string">&quot;Maria&quot;</span>;</span><br><span class="line"><span class="comment">// Uncaught SyntaxError: Lexical declaration cannot appear in a single-statement context</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/////////////// CERTO!!!</span></span><br><span class="line"><span class="keyword">if</span> (tre) &#123;</span><br><span class="line">	<span class="keyword">var</span> nome = <span class="string">&quot;Maria&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Notou? Com <code>var</code> funciona, mas é desincentivado o uso. Com <code>let</code> e <code>const</code> não vai funcionar. Então se você ver o erro “<code>Uncaught SyntaxError: Lexical declaration cannot appear in a single-statement context</code>“ é porque está faltando as chaves <code>&#123;&#125;</code>.</p>
+<h2 id="Declaracao-e-Atribuicao-de-Valores"><a href="#Declaracao-e-Atribuicao-de-Valores" class="headerlink" title="Declaração e Atribuição de Valores"></a>Declaração e Atribuição de Valores</h2><p>Um detalhe muito importante é a questão sobre como declarar as variáveis. Não espalhe declarações ao longo do código. Faça tudo de uma vez: concentre as declarações todas no início, mesmo que você não tenha um valor a ser atribuído a ela. Este princípio dá legibilidade para o seu código. </p>
+<blockquote>
+<p>Usar uma única declaração <code>var</code> no topo de suas funções é um padrão útil a se adotar.<br>Página 30 do livro “<em>JavaScript Patterns</em>, por Stoyan Stefanov (O’Reylly). Todos os direitos reservados 2010 Yahoo!, 9780596806750”.</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myArray = [],</span><br><span class="line">	count = <span class="number">0</span>,</span><br><span class="line">	max = <span class="built_in">document</span>.querySelectorAll(<span class="string">&quot;#id&quot;</span>).length;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Codes	</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>Declarar é diferente de atribuir. <code>var</code>, <code>let</code> e <code>const</code> servem para declarar uma variável e o sinal de igual <code>=</code> para atribuir valores. <code>const</code> força você declarar e atribuir ao mesmo tempo</p>
+<hr>
+<p>Note que quando não tenho um valor a ser atribuído, eu indico o que será minha variável, por meio de atribuição de valores vazios: <code>[]</code> e <code>0</code>.<br>Esta prática resolve ainda outro problema de legibilidade que <a target="_blank" title="as declarações de variáveis são processadas antes de qualquer outro código ser executado" href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/var#Description">as declarações de variáveis são processadas antes de qualquer outro código ser executado</a>, e isso causa uns comportamentos meio estranhos. Veja:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// Output: undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+<p>Antes de executar o código, o compilador avalia o código e identifica a declaração da variável; então atribui o valor <code>undefaned</code>. Na hora da execução, foi realizado o acesso a ela antes da atribuição do valor.<br>O <strong>comportamento natural</strong> seria mostrar um erro. Este comportamento estranho é resolvido com <code>let</code>e <code>const</code>. Na questão do exemplo acima o compilador coloca a variável como se fosse numa <em>zona inacessível</em> fazendo com que o código se comporte de forma natural.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//Cannot access &#x27;a&#x27; before initialization</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//Cannot access &#x27;a&#x27; before initialization</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://mrgenesis.dev/JavaScript/Domine-Tudo-Sobre-var-let-e-const/" data-id="ckeafa3fw0001xghmaze311eb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/escopo/" rel="tag">escopo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/variaveis/" rel="tag">variaveis</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/uncategorized/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/escopo/" rel="tag">escopo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/variaveis/" rel="tag">variaveis</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/escopo/" style="font-size: 10px;">escopo</a> <a href="/tags/variaveis/" style="font-size: 10px;">variaveis</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">agosto 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">abril 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/uncategorized/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/JavaScript/Domine-Tudo-Sobre-var-let-e-const/">Domine Tudo Sobre var, let e const</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Genesis Rosa<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
